@@ -74,9 +74,11 @@ export default function Home() {
       queueMicrotask(() => setLocale(saved));
       return;
     }
-    fetch('/api/locale').then((response) => response.json()).then(({ locale: detected }) => {
-      if (detected && copy[detected as Locale]) setLocale(detected as Locale);
-    }).catch(() => undefined);
+    void (async () => {
+      const response = await fetch('/api/locale');
+      const data = await response.json() as { locale?: Locale };
+      if (data.locale && copy[data.locale]) setLocale(data.locale);
+    })().catch(() => undefined);
   }, []);
 
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
