@@ -17,7 +17,7 @@ const copy = {
     trust: [['현재 위치', '에서 바로 시작'], ['왕복 경로', '로 편안하게 복귀'], ['러닝 기록', '을 한눈에 확인'], ['건강 앱', '과 선택적으로 연동']],
     featureTitle: ['출발 전 고민은 줄이고,', '달리는 순간에 집중하세요'],
     features: [['내 위치에서 경로 찾기', '출발지를 따로 입력하지 않아도 현재 위치와 원하는 거리를 기준으로 달리기 좋은 경로를 찾아요.'], ['반환점까지 왕복 안내', '멀리 낯선 곳으로 빠지지 않도록 출발지로 돌아오는 왕복 경로를 중심으로 안내해요.'], ['6개 지표로 기록하기', '거리, 시간, 평균 페이스, 칼로리, 걸음 수, 고도 정보를 한 화면에서 확인해요.'], ['기록을 성장으로 연결', '러닝 결과와 경로를 차곡차곡 남기고 지난 기록과 비교하며 다음 달리기를 준비해요.']],
-    flowTitle: ['추천부터 기록까지', '하나의 흐름으로'], flowCopy: '경로를 찾고, 달리고, 결과를 확인하는 과정이 끊기지 않도록 만들었어요.',
+    flowTitle: ['실제 도로를 따라 그려지는', '추천 경로'], flowCopy: 'NearbRun 앱이 현재 위치와 선택한 거리를 바탕으로 실제 지도 위에 달릴 경로를 보여줘요.',
     screens: [['경로 추천', '거리와 현재 위치를 기준으로 추천'], ['러닝 중', '경로와 여섯 가지 지표를 실시간 확인'], ['러닝 완료', '오늘의 기록을 한눈에 정리']],
     buddyTitle: ['혼자 달려도', '혼자인 것 같지 않게'], buddy: 'NearbRun은 거창한 목표보다 오늘 한 번 더 나가는 마음을 응원해요. 가까운 곳에서 시작해 나만의 페이스로 달려보세요.',
     safetyTitle: ['추천은 똑똑하게,', '결정은 안전하게'], safetyLead: '경로 추천과 기록에 필요한 정보만 목적에 맞게 사용합니다.',
@@ -34,7 +34,7 @@ const copy = {
     trust: [['Your location', 'Start right away'], ['Round trips', 'Return with confidence'], ['Run history', 'See it at a glance'], ['Health apps', 'Optional connection']],
     featureTitle: ['Spend less time planning.', 'Focus on your run.'],
     features: [['Find routes near you', 'Choose a distance and NearbRun finds a route from your current location—no separate starting point needed.'], ['Round-trip guidance', 'Routes are designed to bring you back to where you started instead of leaving you far from home.'], ['Track six key metrics', 'See distance, time, average pace, calories, steps, and elevation together.'], ['Turn history into progress', 'Save every route and result, compare past runs, and get ready for the next one.']],
-    flowTitle: ['From route discovery', 'to a complete record'], flowCopy: 'Find a route, run it, and review your results in one uninterrupted flow.',
+    flowTitle: ['A real route drawn', 'on real roads'], flowCopy: 'NearbRun uses your location and distance preference to show a runnable route directly on the map.',
     screens: [['Route discovery', 'Recommendations by distance and location'], ['During your run', 'Route and six live metrics'], ['Run complete', 'Your result at a glance']],
     buddyTitle: ['Run solo,', 'never feel alone'], buddy: 'NearbRun celebrates showing up today more than chasing a huge goal. Start nearby and run at your own pace.',
     safetyTitle: ['Smart recommendations.', 'Safer decisions.'], safetyLead: 'We use only the information needed to recommend and record your run.',
@@ -51,7 +51,7 @@ const copy = {
     trust: [['現在地', 'からすぐスタート'], ['往復ルート', 'で安心して戻る'], ['ランニング記録', 'をひと目で確認'], ['ヘルスケア', 'と任意で連携']],
     featureTitle: ['走る前の迷いを減らして、', 'ランニングに集中しよう'],
     features: [['現在地からルート検索', '出発地を入力せず、現在地と希望距離をもとに走りやすいルートを探します。'], ['折り返しの往復案内', '遠く離れた場所で終わらないよう、出発地点へ戻る往復ルートを中心に案内します。'], ['6つの指標を記録', '距離、時間、平均ペース、カロリー、歩数、標高をひとつの画面で確認できます。'], ['記録を成長につなげる', 'ルートと結果を保存し、過去のランと比較して次のランニングに備えられます。']],
-    flowTitle: ['ルート提案から記録まで', 'ひとつの流れで'], flowCopy: 'ルート検索、ランニング、結果確認まで途切れない体験を届けます。',
+    flowTitle: ['実際の道路に沿って表示する', 'おすすめルート'], flowCopy: 'NearbRunは現在地と希望距離をもとに、走れるルートを実際の地図上に表示します。',
     screens: [['ルート提案', '距離と現在地をもとに提案'], ['ランニング中', 'ルートと6つの指標をリアルタイム表示'], ['ランニング完了', '今日の記録をひと目で確認']],
     buddyTitle: ['ひとりで走っても、', 'ひとりじゃない'], buddy: 'NearbRunは大きな目標より、今日もう一度外へ出る気持ちを応援します。近くから、自分のペースで走りましょう。',
     safetyTitle: ['提案はスマートに、', '判断は安全に'], safetyLead: 'ルート提案と記録に必要な情報だけを、目的に合わせて使用します。',
@@ -62,11 +62,18 @@ const copy = {
   },
 } as const;
 
+const localizedMedia = {
+  ko: { photo: '/runner-seoul.jpg', route: '/route-ko.png', place: '서울', credit: 'Theodore Nguyen · Pexels', alt: '서울 도심 성곽길을 달리는 러너' },
+  en: { photo: '/runner-new-york.jpg', route: '/route-en.png', place: 'New York', credit: 'Ketut Subiyanto · Pexels', alt: 'Runner in New York near the Manhattan Bridge' },
+  ja: { photo: '/runner-tokyo.jpg', route: '/route-ja.png', place: '東京', credit: 'Iban Lopez Luna · Pexels', alt: '東京の桜並木を走るランナー' },
+} as const;
+
 export default function Home() {
   const [locale, setLocale] = useState<Locale>('ko');
   const t = copy[locale];
+  const media = localizedMedia[locale];
   const features = t.features.map((item, index) => [`0${index + 1}`, ...item]);
-  const screens = ['/app-recommend.png', '/app-tracking.png', '/app-result.png'].map((src, index) => [src, ...t.screens[index]]);
+  const screens = [[media.route, ...t.screens[0]]];
 
   useEffect(() => {
     const saved = window.localStorage.getItem('nearbrun-locale') as Locale | null;
@@ -123,11 +130,12 @@ export default function Home() {
         <div className="hero-visual" aria-label="NearbRun 앱 경로 추천 화면">
           <div className="mint-orbit orbit-one" />
           <div className="mint-orbit orbit-two" />
-          <div className="character-card">
-            <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} priority />
+          <div className="character-card runner-photo">
+            <Image src={media.photo} width={1800} height={1200} alt={media.alt} priority />
+            <span>{media.place} · {media.credit}</span>
           </div>
           <div className="phone-shell">
-            <Image src="/app-recommend.png" width={944} height={2048} alt="NearbRun 맞춤 경로 추천 화면" priority />
+            <Image src={media.route} width={1320} height={2868} alt={`NearbRun ${t.screens[0][0]}`} priority />
           </div>
           <div className="route-chip route-chip-top">{t.chipA}</div>
           <div className="route-chip route-chip-bottom"><span /> {t.chipB}</div>
@@ -177,7 +185,7 @@ export default function Home() {
       <section className="buddy section">
         <div className="buddy-art">
           <div className="buddy-circle" />
-          <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} />
+          <Image src={media.photo} width={1800} height={1200} alt={media.alt} />
         </div>
         <div className="buddy-copy">
           <p className="eyebrow">YOUR RUNNING BUDDY</p>
@@ -208,7 +216,7 @@ export default function Home() {
             <a className="store-button" href={appStoreUrl} target="_blank" rel="noreferrer"><small>IPHONE</small><strong>{t.app}</strong></a>
           </div>
         </div>
-        <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} />
+        <Image src={media.photo} width={1800} height={1200} alt={media.alt} />
       </section>
 
       <footer>
