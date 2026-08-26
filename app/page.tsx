@@ -124,7 +124,7 @@ export default function Home() {
           <div className="mint-orbit orbit-one" />
           <div className="mint-orbit orbit-two" />
           <div className="character-card">
-            <Image src="/nearbrun-character.png" width={520} height={520} alt={t.alt} priority />
+            <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} priority />
           </div>
           <div className="phone-shell">
             <Image src="/app-recommend.png" width={944} height={2048} alt="NearbRun 맞춤 경로 추천 화면" priority />
@@ -177,7 +177,7 @@ export default function Home() {
       <section className="buddy section">
         <div className="buddy-art">
           <div className="buddy-circle" />
-          <Image src="/nearbrun-character.png" width={560} height={560} alt={t.alt} />
+          <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} />
         </div>
         <div className="buddy-copy">
           <p className="eyebrow">YOUR RUNNING BUDDY</p>
@@ -208,7 +208,7 @@ export default function Home() {
             <a className="store-button" href={appStoreUrl} target="_blank" rel="noreferrer"><small>IPHONE</small><strong>{t.app}</strong></a>
           </div>
         </div>
-        <Image src="/nearbrun-character.png" width={440} height={440} alt={t.alt} />
+        <Image src="/nearbrun-character-v3.png" width={1254} height={1254} alt={t.alt} />
       </section>
 
       <footer>
